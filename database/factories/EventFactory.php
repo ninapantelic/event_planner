@@ -17,7 +17,10 @@ class EventFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->sentence(5, true),
+            'date' => fake()->dateTimeBetween('now', '+90 days'),
+            'tickets' => fake()->numberBetween(10, 100000)
+       
         ];
     }
 }
