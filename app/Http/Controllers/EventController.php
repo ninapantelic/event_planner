@@ -98,6 +98,7 @@ class EventController extends Controller
             return response()->json('Event not found', 404);
         }
         return response()->json(new EventResource($event));
+        
    
     }
 
