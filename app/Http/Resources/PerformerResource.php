@@ -20,6 +20,7 @@ class PerformerResource extends JsonResource
             'name' => $this->resource->name,
             'gender' => $this->resource->gender,
             'performance' => $this->resource->performance,
+            
         ];
     }
 }
