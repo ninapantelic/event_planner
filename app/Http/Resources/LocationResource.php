@@ -12,8 +12,14 @@ class LocationResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
      */
+    public static $wrap = 'location';
+
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'name' => $this->resource->name,
+            'address' => $this->resource->address . ", " . $this->resource->city,
+            'capacity' => $this->resource->capacity
+        ];
     }
 }
