@@ -3,7 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\LocationController;
 use App\Http\Controllers\LocationEventController;
@@ -41,8 +41,8 @@ Route::resource('locations.events', LocationEventController::class)
     ->only(['index']);
 
 
-Route::post('/register', [AuthorCorontroller::class, 'register']);
-Route::post('/login', [AuthorController::class, 'login']);
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/profile', function (Request $request) {
@@ -58,5 +58,5 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::resource('/events', EventController::class)
         ->only(['store', 'update', 'destroy']);
 
-    Route::post('/logout', [AuthorController::class, 'logout']);
+    Route::post('/logout', [AuthController::class, 'logout']);
 });
